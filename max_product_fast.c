@@ -6,12 +6,18 @@ int max_pairwise_product_fast(int *arr, int size){
 	for(int i = 1; i < size; i++)
 		if(arr[i] > arr[index])
 			index = i;
-	SWAP(arr[index], arr[size - 1]);
+	//SWAP(arr[index], arr[size - 1]);
+	int temp = arr[index];
+	arr[index] = arr[size - 1];
+	arr[size - 1] = temp;
 	index = 0;
 	for(int i = 1; i < size - 1; i++)
 		if(arr[i] > arr[index])
 			index = i;
-	SWAP(arr[index], arr[size - 2]);
+	//SWAP(arr[index], arr[size - 2]);
+	temp = arr[index];
+	arr[index] = arr[size - 2];
+	arr[size - 2] = temp;
 	return arr[size - 1]*arr[size - 2];
 
 }
